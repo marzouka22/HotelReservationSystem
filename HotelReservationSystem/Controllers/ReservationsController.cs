@@ -1,0 +1,188 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using HotelReservationSystem.Data;
+using HotelReservationSystem.Models;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace HotelReservationSystem.Controllers
+{
+    [Microsoft.AspNetCore.Authorization.Authorize]
+    public class ReservationsController : Controller
+    {
+        private readonly ApplicationDbContext _context;
+        private readonly Microsoft.AspNetCore.Identity.UserManager<Microsoft.AspNetCore.Identity.IdentityUser> _userManager;
+
+        public ReservationsController(ApplicationDbContext context, Microsoft.AspNetCore.Identity.UserManager<Microsoft.AspNetCore.Identity.IdentityUser> userManager)
+        {
+            _context = context;
+            _userManager = userManager;
+        }
+
+        // GET: Reservations/GetReservations
+        [HttpGet]
+        public async Task<IActionResult> GetReservations()
+        {
+            var events = await _context.Reservations
+                .Include(r => r.Room)
+                .Include(r => r.Client)
+                .Select(r => new
+                {
+                    title = r.Room.RoomNumber + " - " + (r.Client != null ? r.Client.FullName : r.UserId),
+                    start = r.CheckIn.ToString("yyyy-MM-dd"),
+                    end = r.CheckOut.ToString("yyyy-MM-dd")
+                })
+                .ToListAsync();
+
+            return Json(events);
+        }
+
+        // GET: Reservations/GetAvailableRooms?checkIn=2026-03-17&checkOut=2026-03-28
+        [HttpGet]
+        [Microsoft.AspNetCore.Authorization.AllowAnonymous]
+        public async Task<IActionResult> GetAvailableRooms(DateTime checkIn, DateTime checkOut)
+        {
+            if (checkIn >= checkOut)
+            {
+                return BadRequest("CheckOut must be after CheckIn");
+            }
+
+            // find rooms reserved for overlapping periods
+            var reservedIds = await _context.Reservations
+                .Where(r => r.CheckIn < checkOut && r.CheckOut > checkIn)
+                .Select(r => r.RoomId)
+                .Distinct()
+                .ToListAsync();
+
+            var available = await _context.Rooms
+                .Where(room => !reservedIds.Contains(room.Id))
+                .Select(r => new { r.Id, r.RoomNumber, r.Type, r.Price })
+                .ToListAsync();
+
+            return Json(available);
+        }
+
+        // GET: Reservations
+        public async Task<IActionResult> Index()
+        {
+            var query = _context.Reservations
+                .Include(r => r.Client)
+                .Include(r => r.Room)
+                .AsQueryable();
+
+            // If user is not in Admin role, show only their reservations
+            if (!User.IsInRole("Admin"))
+            {
+                var user = await _userManager.GetUserAsync(User);
+                if (user != null)
+                {
+                    query = query.Where(r => r.UserId == user.Id);
+                }
+                else
+                {
+                    query = query.Where(r => r.UserId == null); // no results for anonymous
+                }
+            }
+
+            var reservations = await query.ToListAsync();
+            return View(reservations);
+        }
+
+        // GET: Reservations/Create
+        public async Task<IActionResult> Create(DateTime? checkIn, DateTime? checkOut)
+        {
+            var reservation = new Reservation();
+            if (checkIn.HasValue) reservation.CheckIn = checkIn.Value;
+            if (checkOut.HasValue) reservation.CheckOut = checkOut.Value;
+
+            await LoadDropdowns(reservation);
+            return View(reservation);
+        }
+
+        // POST: Reservations/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Reservation reservation)
+        {
+            // 🔴 Validation dates
+            if (reservation.CheckIn >= reservation.CheckOut)
+            {
+                ModelState.AddModelError("", "CheckOut doit être après CheckIn.");
+            }
+
+            // 🔴 Vérifier sélection (IMPORTANT)
+            if (reservation.RoomId == 0)
+            {
+                ModelState.AddModelError("RoomId", "Veuillez choisir une chambre.");
+            }
+
+            // If user is not admin, we will link the reservation to the authenticated user
+            if (!User.IsInRole("Admin") && reservation.ClientId == null)
+            {
+                // ok, will be assigned below
+            }
+
+            // 🔴 Vérifier disponibilité chambre
+            bool roomTaken = await _context.Reservations.AnyAsync(r =>
+                r.RoomId == reservation.RoomId &&
+                reservation.CheckIn < r.CheckOut &&
+                reservation.CheckOut > r.CheckIn
+            );
+
+            if (roomTaken)
+            {
+                ModelState.AddModelError("", "Cette chambre est déjà réservée pour ces dates.");
+            }
+
+            // ✅ Sauvegarde
+            if (ModelState.IsValid)
+            {
+                // If the current user is not an admin, associate the reservation with their Identity user
+                if (!User.IsInRole("Admin"))
+                {
+                    var user = await _userManager.GetUserAsync(User);
+                    if (user != null)
+                    {
+                        reservation.UserId = user.Id;
+                    }
+                }
+
+                _context.Add(reservation);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            // 🔁 IMPORTANT : recharger dropdowns
+            await LoadDropdowns(reservation);
+
+            return View(reservation);
+        }
+
+        // 🔥 MÉTHODE PRO (évite répétition)
+        private async Task LoadDropdowns(Reservation reservation = null)
+        {
+            ViewBag.RoomId = new SelectList(
+                _context.Rooms.ToList(),
+                "Id",
+                "RoomNumber",
+                reservation?.RoomId
+            );
+
+            // Only admin users should be able to select a Client from dropdown
+            if (User.IsInRole("Admin"))
+            {
+                var clientItems = await _context.Clients
+                    .Select(c => new SelectListItem
+                    {
+                        Value = c.Id.ToString(),
+                        Text = c.FullName,
+                        Selected = reservation != null && reservation.ClientId == c.Id
+                    })
+                    .ToListAsync();
+
+                ViewBag.ClientId = clientItems;
+            }
+        }
+    }
+}

@@ -1,0 +1,122 @@
+﻿<h2 style="color:red">TEST VIEW</h2>
+@model HotelReservationSystem.Models.Reservation
+
+@{
+    ViewData["Title"] = "Create Reservation";
+}
+
+<h1>Create Reservation</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
+
+            <!-- Validation summary -->
+            <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+            <!-- CheckIn -->
+            <div class="form-group mb-2">
+                <label asp-for="CheckIn" class="control-label"></label>
+                <input asp-for="CheckIn" type="date" class="form-control" />
+                <span asp-validation-for="CheckIn" class="text-danger"></span>
+            </div>
+
+            <!-- CheckOut -->
+            <div class="form-group mb-2">
+                <label asp-for="CheckOut" class="control-label"></label>
+                <input asp-for="CheckOut" type="date" class="form-control" />
+                <span asp-validation-for="CheckOut" class="text-danger"></span>
+            </div>
+
+            <!-- Room dropdown -->
+            <div class="form-group mb-2">
+                <label asp-for="RoomId" class="control-label"></label>
+                <select asp-for="RoomId" class="form-control" asp-items="ViewBag.RoomId" id="RoomId">
+                    <option value="">-- Sélectionner une chambre --</option>
+                </select>
+                <div id="availableRooms" class="mt-2"></div>
+                <span asp-validation-for="RoomId" class="text-danger"></span>
+            </div>
+
+            <!-- Client dropdown -->
+            <div class="form-group mb-2">
+                <label asp-for="ClientId" class="control-label"></label>
+                <select asp-for="ClientId" class="form-control" asp-items="ViewBag.ClientId">
+                    <option value="">-- Sélectionner un client --</option>
+                </select>
+                <span asp-validation-for="ClientId" class="text-danger"></span>
+            </div>
+
+            <!-- Buttons -->
+            <div class="form-group mt-3">
+                <button type="submit" class="btn btn-primary">Create Reservation</button>
+                <a asp-action="Index" class="btn btn-secondary">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        (function(){
+            // prevent selecting past dates
+            var today = new Date().toISOString().split('T')[0];
+            document.querySelector('input[name="CheckIn"]').setAttribute('min', today);
+            document.querySelector('input[name="CheckOut"]').setAttribute('min', today);
+
+            function fetchAvailable(){
+                var checkIn = document.querySelector('input[name="CheckIn"]').value;
+                var checkOut = document.querySelector('input[name="CheckOut"]').value;
+                if(!checkIn || !checkOut) return;
+                if(checkIn >= checkOut) return;
+
+                var url = '/Reservations/GetAvailableRooms?checkIn=' + encodeURIComponent(checkIn) + '&checkOut=' + encodeURIComponent(checkOut);
+                fetch(url)
+                    .then(function(res){ if(!res.ok) throw res; return res.json(); })
+                    .then(function(data){
+                        var select = document.getElementById('RoomId');
+                        // clear existing options except first
+                        select.options.length = 1;
+                        var container = document.getElementById('availableRooms');
+                        container.innerHTML = '';
+                        if(data.length === 0){
+                            container.innerHTML = '<div class="alert alert-warning">Aucune chambre disponible pour ces dates.</div>';
+                            return;
+                        }
+                        data.forEach(function(r){
+                            var opt = document.createElement('option');
+                            opt.value = r.id;
+                            opt.text = r.roomNumber + ' (' + r.type + ') - ' + r.price.toFixed(2) + '€';
+                            select.appendChild(opt);
+                        });
+                        // also list brief cards
+                        var html = '<div class="list-group">';
+                        data.forEach(function(r){
+                            html += '<div class="list-group-item d-flex justify-content-between align-items-center">'
+                                + '<div>' + r.roomNumber + ' <small class="text-muted">' + r.type + '</small></div>'
+                                + '<div>' + r.price.toFixed(2) + '€</div>'
+                                + '</div>';
+                        });
+                        html += '</div>';
+                        container.innerHTML = html;
+                    })
+                    .catch(function(err){
+                        console.error(err);
+                    });
+            }
+
+            document.querySelector('input[name="CheckIn"]').addEventListener('change', fetchAvailable);
+            document.querySelector('input[name="CheckOut"]').addEventListener('change', fetchAvailable);
+
+            // initial fetch if values present
+            fetchAvailable();
+        })();
+    </script>
+}

@@ -1,0 +1,65 @@
+﻿<h2 style="color:red">TEST VIEW</h2>
+@model HotelReservationSystem.Models.Reservation
+
+@{
+    ViewData["Title"] = "Create Reservation";
+}
+
+<h1>Create Reservation</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
+
+            <!-- Validation summary -->
+            <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+            <!-- CheckIn -->
+            <div class="form-group mb-2">
+                <label asp-for="CheckIn" class="control-label"></label>
+                <input asp-for="CheckIn" type="date" class="form-control" />
+                <span asp-validation-for="CheckIn" class="text-danger"></span>
+            </div>
+
+            <!-- CheckOut -->
+            <div class="form-group mb-2">
+                <label asp-for="CheckOut" class="control-label"></label>
+                <input asp-for="CheckOut" type="date" class="form-control" />
+                <span asp-validation-for="CheckOut" class="text-danger"></span>
+            </div>
+
+            <!-- Room dropdown -->
+            <div class="form-group mb-2">
+                <label asp-for="RoomId" class="control-label"></label>
+                <select asp-for="RoomId" class="form-control" asp-items="ViewBag.RoomId">
+                    <option value="">-- Sélectionner une chambre --</option>
+                </select>
+                <span asp-validation-for="RoomId" class="text-danger"></span>
+            </div>
+
+            <!-- Client dropdown -->
+            <div class="form-group mb-2">
+                <label asp-for="ClientId" class="control-label"></label>
+                <select asp-for="ClientId" class="form-control" asp-items="ViewBag.ClientId">
+                    <option value="">-- Sélectionner un client --</option>
+                </select>
+                <span asp-validation-for="ClientId" class="text-danger"></span>
+            </div>
+
+            <!-- Buttons -->
+            <div class="form-group mt-3">
+                <button type="submit" class="btn btn-primary">Create Reservation</button>
+                <a asp-action="Index" class="btn btn-secondary">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

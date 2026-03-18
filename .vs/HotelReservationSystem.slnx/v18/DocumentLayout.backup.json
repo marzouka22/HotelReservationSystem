@@ -1,0 +1,502 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\wwwroot\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\wwwroot\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Migrations\\20260318022144_LinkReservationToUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HotelReservationSystem\\Migrations\\20260318022144_LinkReservationToUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Migrations\\20260318020422_AddIdentitySchema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:HotelReservationSystem\\Migrations\\20260318020422_AddIdentitySchema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\views\\reservations\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\views\\reservations\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\controllers\\reservationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\controllers\\reservationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\views\\reservations\\calendar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\views\\reservations\\calendar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\views\\clients\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\views\\clients\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\views\\clients\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\views\\clients\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\views\\reservations\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\views\\reservations\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\views\\reservations\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\views\\reservations\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\views\\rooms\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\views\\rooms\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\models\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\models\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\migrations\\20260317011729_fixclientid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\migrations\\20260317011729_fixclientid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\models\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\models\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\hotelreservationsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\hotelreservationsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\controllers\\roomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\controllers\\roomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|c:\\users\\selim\\source\\repos\\hotelreservationsystem\\hotelreservationsystem\\controllers\\clientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4DDCF67-F183-A1AE-2C21-1A1351FA40D1}|HotelReservationSystem\\HotelReservationSystem.csproj|solutionrelative:hotelreservationsystem\\controllers\\clientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\wwwroot\\.gitignore",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\wwwroot\\.gitignore",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\wwwroot\\.gitignore",
+              "RelativeToolTip": "HotelReservationSystem\\wwwroot\\.gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-03-18T02:32:01.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20260318022144_LinkReservationToUser.cs",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Migrations\\20260318022144_LinkReservationToUser.cs",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Migrations\\20260318022144_LinkReservationToUser.cs",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Migrations\\20260318022144_LinkReservationToUser.cs",
+              "RelativeToolTip": "HotelReservationSystem\\Migrations\\20260318022144_LinkReservationToUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T02:21:45.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ClientsController.cs",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Controllers\\ClientsController.cs",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Controllers\\ClientsController.cs",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Controllers\\ClientsController.cs",
+              "RelativeToolTip": "HotelReservationSystem\\Controllers\\ClientsController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAIBQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T02:15:29.573Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "RoomsController.cs",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Controllers\\RoomsController.cs",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Controllers\\RoomsController.cs",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Controllers\\RoomsController.cs",
+              "RelativeToolTip": "HotelReservationSystem\\Controllers\\RoomsController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAIBQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T02:15:19.154Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "20260318020422_AddIdentitySchema.cs",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Migrations\\20260318020422_AddIdentitySchema.cs",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Migrations\\20260318020422_AddIdentitySchema.cs",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Migrations\\20260318020422_AddIdentitySchema.cs",
+              "RelativeToolTip": "HotelReservationSystem\\Migrations\\20260318020422_AddIdentitySchema.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T02:04:23.022Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "HotelReservationSystem",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\HotelReservationSystem.csproj",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\HotelReservationSystem.csproj",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\HotelReservationSystem.csproj",
+              "RelativeToolTip": "HotelReservationSystem\\HotelReservationSystem.csproj",
+              "ViewState": "AgIAAA8AAAAAAAAAAABBwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-03-18T01:32:58.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "HotelReservationSystem\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T01:29:36.395Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "RegisterViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Models\\RegisterViewModel.cs",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Models\\RegisterViewModel.cs",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Models\\RegisterViewModel.cs",
+              "RelativeToolTip": "HotelReservationSystem\\Models\\RegisterViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T01:29:23.025Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Program.cs",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Program.cs",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Program.cs",
+              "RelativeToolTip": "HotelReservationSystem\\Program.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAlwDUAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-16T01:06:47.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Models\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Models\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Models\\LoginViewModel.cs",
+              "RelativeToolTip": "HotelReservationSystem\\Models\\LoginViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T01:29:18.636Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "HotelReservationSystem\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-18T01:29:56.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "HotelReservationSystem\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-18T01:29:47.023Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "HotelReservationSystem\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T01:27:34.029Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "HotelReservationSystem\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADUAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-17T01:46:15.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "HotelReservationSystem\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-17T01:44:26.553Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "HotelReservationSystem\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAACIAAAAAAAAAAIBJwD0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-17T01:46:31.574Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "HotelReservationSystem\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAIEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-03-17T01:35:20.555Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Calendar.cshtml",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Reservations\\Calendar.cshtml",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Views\\Reservations\\Calendar.cshtml",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Reservations\\Calendar.cshtml",
+              "RelativeToolTip": "HotelReservationSystem\\Views\\Reservations\\Calendar.cshtml",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAUwCQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-16T02:31:02.5Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Reservation.cs",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Models\\Reservation.cs",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Models\\Reservation.cs",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Models\\Reservation.cs",
+              "RelativeToolTip": "HotelReservationSystem\\Models\\Reservation.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAIBQwCgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-16T02:30:46.857Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Reservations\\Delete.cshtml",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Views\\Reservations\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Reservations\\Delete.cshtml",
+              "RelativeToolTip": "HotelReservationSystem\\Views\\Reservations\\Delete.cshtml",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAAB0AAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-16T02:26:22.961Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Reservations\\Create.cshtml",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Views\\Reservations\\Create.cshtml",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Reservations\\Create.cshtml",
+              "RelativeToolTip": "HotelReservationSystem\\Views\\Reservations\\Create.cshtml",
+              "ViewState": "AgIAADQAAAAAAAAAAIBJwH0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-16T01:52:11.793Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ReservationsController.cs",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Controllers\\ReservationsController.cs",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Controllers\\ReservationsController.cs",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Controllers\\ReservationsController.cs",
+              "RelativeToolTip": "HotelReservationSystem\\Controllers\\ReservationsController.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAIBIwLkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-16T02:38:19.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "20260317011729_FixClientId.cs",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Migrations\\20260317011729_FixClientId.cs",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Migrations\\20260317011729_FixClientId.cs",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Migrations\\20260317011729_FixClientId.cs",
+              "RelativeToolTip": "HotelReservationSystem\\Migrations\\20260317011729_FixClientId.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T01:17:31.002Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Clients\\Create.cshtml",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Views\\Clients\\Create.cshtml",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Clients\\Create.cshtml",
+              "RelativeToolTip": "HotelReservationSystem\\Views\\Clients\\Create.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-16T02:26:04.631Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Reservations\\Details.cshtml",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Views\\Reservations\\Details.cshtml",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Reservations\\Details.cshtml",
+              "RelativeToolTip": "HotelReservationSystem\\Views\\Reservations\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-16T02:31:13.637Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Client.cs",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Models\\Client.cs",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Models\\Client.cs",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Models\\Client.cs",
+              "RelativeToolTip": "HotelReservationSystem\\Models\\Client.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T01:16:43.444Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Clients\\Delete.cshtml",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Views\\Clients\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Clients\\Delete.cshtml",
+              "RelativeToolTip": "HotelReservationSystem\\Views\\Clients\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-17T00:54:52.587Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Rooms\\Index.cshtml",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Views\\Rooms\\Index.cshtml",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Views\\Rooms\\Index.cshtml",
+              "RelativeToolTip": "HotelReservationSystem\\Views\\Rooms\\Index.cshtml",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAUwEIAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-16T01:39:23.408Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Room.cs",
+              "DocumentMoniker": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Models\\Room.cs",
+              "RelativeDocumentMoniker": "HotelReservationSystem\\Models\\Room.cs",
+              "ToolTip": "C:\\Users\\selim\\source\\repos\\HotelReservationSystem\\HotelReservationSystem\\Models\\Room.cs",
+              "RelativeToolTip": "HotelReservationSystem\\Models\\Room.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-16T01:02:18.501Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+﻿@{
+    ViewData["Title"] = "Accueil";
+}
+
+<div class="hero py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4">Réservez votre séjour en quelques clics</h1>
+                <p class="lead text-muted">Trouvez les meilleures chambres, comparez les prix et réservez rapidement.</p>
+
+                <div class="search-box mt-4">
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <label class="form-label small">Arrivée</label>
+                            <input id="homeCheckIn" type="date" class="form-control" />
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label small">Départ</label>
+                            <input id="homeCheckOut" type="date" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row g-2 mt-2">
+                        <div class="col-8">
+                            <label class="form-label small">Chambres</label>
+                            <select id="homeRooms" class="form-select">
+                                <option value="1">1 chambre</option>
+                                <option value="2">2 chambres</option>
+                                <option value="3">3 chambres</option>
+                            </select>
+                        </div>
+                        <div class="col-4 d-flex align-items-end">
+                            <button id="searchBtn" class="btn btn-primary w-100">Rechercher</button>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mt-3">
+                    <a class="btn btn-outline-secondary me-2" href="/Reservations/Calendar">Voir le calendrier</a>
+                    <a class="btn btn-link" href="/Rooms">Voir toutes les chambres</a>
+                </p>
+            </div>
+
+            <div class="col-lg-6 d-none d-lg-block">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center py-5">
+                        <h5 class="card-title">Offre du moment</h5>
+                        <p class="card-text">-20% sur les séjours de 3 nuits ou plus.</p>
+                        <span class="price-pill">Voir l'offre</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5">
+    <h3>Chambres recommandées</h3>
+    <div class="row gy-4 mt-3">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Chambre Standard</h5>
+                    <p class="card-text text-muted">Confort simple pour un séjour agréable.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="text-muted">à partir de</div>
+                        <div class="price-pill">65€</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Chambre Deluxe</h5>
+                    <p class="card-text text-muted">Plus d'espace et vue agréable.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="text-muted">à partir de</div>
+                        <div class="price-pill">95€</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Suite</h5>
+                    <p class="card-text text-muted">Prestations haut de gamme.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="text-muted">à partir de</div>
+                        <div class="price-pill">150€</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        (function(){
+            var today = new Date().toISOString().split('T')[0];
+            var inInput = document.getElementById('homeCheckIn');
+            var outInput = document.getElementById('homeCheckOut');
+            inInput.setAttribute('min', today);
+            outInput.setAttribute('min', today);
+
+            document.getElementById('searchBtn').addEventListener('click', function(){
+                var checkIn = inInput.value;
+                var checkOut = outInput.value;
+                if(!checkIn || !checkOut || checkIn >= checkOut){
+                    alert('Choisissez des dates valides.');
+                    return;
+                }
+                window.location = '/Reservations/Create?checkIn=' + checkIn + '&checkOut=' + checkOut;
+            });
+        })();
+    </script>
+}
