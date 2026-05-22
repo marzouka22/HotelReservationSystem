@@ -1,42 +1,114 @@
-﻿@model HotelReservationSystem.Models.Reservation
+@model HotelReservationSystem.Models.Reservation
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Détails de la réservation";
 }
 
-<h1>Details</h1>
+<h1 class="mb-3">Détails de la réservation</h1>
 
-<div>
-    <h4>Reservation</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CheckIn)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CheckIn)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CheckOut)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CheckOut)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Room)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Room.RoomNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Client)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Client.FullName)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="row g-4">
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Réservation</h5>
+                <dl class="row mb-0">
+                    <dt class="col-sm-4">Arrivée</dt>
+                    <dd class="col-sm-8">@Model.CheckIn.ToString("dd/MM/yyyy")</dd>
+
+                    <dt class="col-sm-4">Départ</dt>
+                    <dd class="col-sm-8">@Model.CheckOut.ToString("dd/MM/yyyy")</dd>
+
+                    <dt class="col-sm-4">Chambre</dt>
+                    <dd class="col-sm-8">@(Model.Room?.RoomNumber ?? "-") @(Model.Room != null ? "(" + Model.Room.Type + ")" : "")</dd>
+
+                    <dt class="col-sm-4">Client</dt>
+                    <dd class="col-sm-8">
+                        @if (Model.Client != null)
+                        {
+                            @Model.Client.FullName
+                        }
+                        else if (!string.IsNullOrEmpty(Model.UserId))
+                        {
+                            <span>@(Model.User?.Email ?? "Utilisateur inscrit")</span>
+                        }
+                        else
+                        {
+                            <span class="text-muted">-</span>
+                        }
+                    </dd>
+
+                    <dt class="col-sm-4">Statut</dt>
+                    <dd class="col-sm-8">
+                        @if (Model.IsCancelled)
+                        {
+                            <span class="badge bg-danger">Annulée</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-success">Active</span>
+                        }
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="mt-3">
+            @if (!Model.IsCancelled)
+            {
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-secondary">Modifier</a>
+            }
+            <a asp-action="Index" class="btn btn-link">Retour à la liste</a>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Votre avis</h5>
+
+                @if (Model.Rating.HasValue)
+                {
+                    <p class="mb-1">
+                        <span class="fs-4 text-warning">@(new string('★', Model.Rating.Value))</span><span class="fs-4 text-muted">@(new string('☆', 5 - Model.Rating.Value))</span>
+                        <span class="ms-2 text-muted">@Model.Rating.Value / 5</span>
+                    </p>
+                    @if (!string.IsNullOrWhiteSpace(Model.Comment))
+                    {
+                        <p class="fst-italic">« @Model.Comment »</p>
+                    }
+                    <p class="text-muted small">Vous pouvez modifier votre avis ci-dessous.</p>
+                }
+                else
+                {
+                    <p class="text-muted">Vous n'avez pas encore noté cette réservation.</p>
+                }
+
+                <form asp-action="Rate" asp-route-id="@Model.Id" method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="mb-3">
+                        <label class="form-label">Note</label>
+                        <select name="rating" class="form-select" required>
+                            <option value="">-- Choisir une note --</option>
+                            @for (int n = 5; n >= 1; n--)
+                            {
+                                if (Model.Rating == n)
+                                {
+                                    <option value="@n" selected>@n - @(new string('★', n))</option>
+                                }
+                                else
+                                {
+                                    <option value="@n">@n - @(new string('★', n))</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Commentaire (facultatif)</label>
+                        <textarea name="comment" class="form-control" rows="3" maxlength="500">@Model.Comment</textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enregistrer mon avis</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

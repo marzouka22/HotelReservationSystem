@@ -1,42 +1,145 @@
-﻿@model HotelReservationSystem.Models.Room
+@model HotelReservationSystem.Models.Room
+@using HotelReservationSystem.Models
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Détails de la chambre";
+    var isAdmin = User.IsInRole("Admin");
+    var reservations = ViewBag.Reservations as List<Reservation> ?? new List<Reservation>();
+    var avgRating = ViewBag.AvgRating as double?;
+    var today = DateTime.Today;
 }
 
-<h1>Details</h1>
+<h1 class="mb-3">Chambre @Model.RoomNumber</h1>
 
-<div>
-    <h4>Room</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RoomNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RoomNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Type)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Type)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IsAvailable)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IsAvailable)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="row g-4">
+    <div class="col-md-5">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Informations</h5>
+                <dl class="row mb-0">
+                    <dt class="col-sm-5">Numéro</dt>
+                    <dd class="col-sm-7">@Model.RoomNumber</dd>
+
+                    <dt class="col-sm-5">Type</dt>
+                    <dd class="col-sm-7">@Model.Type</dd>
+
+                    <dt class="col-sm-5">Prix / nuit</dt>
+                    <dd class="col-sm-7">@Model.Price.ToString("0.00") €</dd>
+
+                    <dt class="col-sm-5">Capacité</dt>
+                    <dd class="col-sm-7">@Model.Capacity personne(s)</dd>
+
+                    <dt class="col-sm-5">Statut</dt>
+                    <dd class="col-sm-7">
+                        @if (Model.Status == RoomStatus.Available)
+                        {
+                            <span class="badge bg-success">Disponible</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-warning text-dark">En maintenance</span>
+                        }
+                    </dd>
+                </dl>
+
+                <div class="mt-3 d-flex flex-wrap gap-2">
+                    @if ((User.Identity?.IsAuthenticated ?? false) && Model.Status == RoomStatus.Available)
+                    {
+                        <a asp-controller="Reservations" asp-action="Create" class="btn btn-success">Réserver cette chambre</a>
+                    }
+                    @if (isAdmin)
+                    {
+                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-secondary">Modifier</a>
+                        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger">Supprimer</a>
+                    }
+                    <a asp-action="Index" class="btn btn-link">Retour</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (isAdmin)
+    {
+        <div class="col-md-7">
+            <div class="row g-3">
+                <div class="col-4">
+                    <div class="card text-white bg-primary shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <div class="small text-uppercase">Réservations</div>
+                            <div class="h3 mb-0">@ViewBag.NbReservations</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card text-white bg-dark shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <div class="small text-uppercase">Chiffre d'affaires</div>
+                            <div class="h4 mb-0">@(((decimal)ViewBag.Revenue).ToString("0.00")) €</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card text-white bg-warning shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <div class="small text-uppercase">Note moyenne</div>
+                            <div class="h3 mb-0">
+                                @if (avgRating.HasValue)
+                                {
+                                    @avgRating.Value.ToString("0.0")<text> / 5</text>
+                                }
+                                else
+                                {
+                                    <span class="h6">Aucune note</span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card shadow-sm mt-3">
+                <div class="card-body">
+                    <h5 class="card-title">Agenda des réservations</h5>
+                    @if (!reservations.Any())
+                    {
+                        <p class="text-muted mb-0">Aucune réservation pour cette chambre.</p>
+                    }
+                    else
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-sm align-middle mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Arrivée</th>
+                                        <th>Départ</th>
+                                        <th>Client</th>
+                                        <th>Statut</th>
+                                        <th>Note</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach (var r in reservations)
+                                {
+                                    string etat;
+                                    string etatClass;
+                                    if (r.CheckOut < today) { etat = "Terminée"; etatClass = "bg-secondary"; }
+                                    else if (r.CheckIn <= today) { etat = "En cours"; etatClass = "bg-success"; }
+                                    else { etat = "À venir"; etatClass = "bg-primary"; }
+
+                                    <tr>
+                                        <td>@r.CheckIn.ToString("dd/MM/yyyy")</td>
+                                        <td>@r.CheckOut.ToString("dd/MM/yyyy")</td>
+                                        <td>@(r.Client?.FullName ?? r.User?.Email ?? (string.IsNullOrEmpty(r.UserId) ? "-" : "Utilisateur inscrit"))</td>
+                                        <td><span class="badge @etatClass">@etat</span></td>
+                                        <td>@(r.Rating.HasValue ? r.Rating.Value + " / 5" : "-")</td>
+                                    </tr>
+                                }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
 </div>

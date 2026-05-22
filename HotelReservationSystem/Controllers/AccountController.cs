@@ -1,7 +1,9 @@
-using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
+using HotelReservationSystem.Data;
 using HotelReservationSystem.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace HotelReservationSystem.Controllers
 {
@@ -9,15 +11,20 @@ namespace HotelReservationSystem.Controllers
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly ApplicationDbContext _context;
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public AccountController(
+            UserManager<IdentityUser> userManager,
+            SignInManager<IdentityUser> signInManager,
+            ApplicationDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _context = context;
         }
 
         [HttpGet]
-        public IActionResult Login(string returnUrl = null)
+        public IActionResult Login(string? returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
             return View();
@@ -25,7 +32,7 @@ namespace HotelReservationSystem.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
+        public async Task<IActionResult> Login(LoginViewModel model, string? returnUrl = null)
         {
             if (!ModelState.IsValid) return View(model);
 
@@ -57,6 +64,20 @@ namespace HotelReservationSystem.Controllers
             if (result.Succeeded)
             {
                 await _userManager.AddToRoleAsync(user, "Client");
+
+                // Création automatique d'une fiche Client liée au compte inscrit
+                // (le lien se fait via l'adresse email, commune au compte et à la fiche)
+                if (!await _context.Clients.AnyAsync(c => c.Email == model.Email))
+                {
+                    _context.Clients.Add(new Client
+                    {
+                        FullName = model.FullName,
+                        Email = model.Email,
+                        Phone = ""
+                    });
+                    await _context.SaveChangesAsync();
+                }
+
                 await _signInManager.SignInAsync(user, isPersistent: false);
                 return RedirectToAction("Index", "Home");
             }

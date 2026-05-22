@@ -9,7 +9,7 @@ namespace HotelReservationSystem.Migrations
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
-        {
+        { 
             migrationBuilder.DropForeignKey(
                 name: "FK_Reservations_Clients_ClientId",
                 table: "Reservations");

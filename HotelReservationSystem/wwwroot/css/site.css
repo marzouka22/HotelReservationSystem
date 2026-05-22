@@ -24,13 +24,75 @@ body {
 .navbar-brand {
     font-weight: 700;
     font-size: 1.5rem;
-    color: #212529;
+    color: #fff !important;
     transition: color 0.3s;
 }
 
     .navbar-brand:hover {
-        color: #258cfb;
+        color: #6cb2ff !important;
     }
+
+/* Hero section */
+.hero-banner {
+    position: relative;
+    background-image: linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.65)),
+        url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+    .hero-banner h1 {
+        font-weight: 800;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-banner .lead {
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+.hero-search {
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    color: #212529;
+}
+
+/* Room cards */
+.room-card {
+    border: none;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+    .room-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    }
+
+    .room-card .room-thumb {
+        height: 180px;
+        background-size: cover;
+        background-position: center;
+    }
+
+/* Feature icons */
+.feature-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #e7f1ff;
+    color: #258cfb;
+    font-size: 1.6rem;
+    margin: 0 auto 12px;
+}
 
 /* Search box modernisé */
 .search-box {

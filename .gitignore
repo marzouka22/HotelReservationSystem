@@ -1,0 +1,14 @@
+## Fichiers générés par Visual Studio / .NET
+## (compilation et cache de l'IDE - ne doivent pas être versionnés)
+.vs/
+bin/
+obj/
+*.user
+*.suo
+
+## Rider / autres IDE
+.idea/
+
+## Système
+Thumbs.db
+.DS_Store

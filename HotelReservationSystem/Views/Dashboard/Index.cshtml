@@ -1,29 +1,81 @@
-﻿<div class="container mt-4">
+@{
+    ViewData["Title"] = "Dashboard Admin";
+}
 
-	<h2>Admin Dashboard</h2>
+<h2 class="mb-4">Tableau de bord</h2>
 
-	<div class="row">
+<div class="row g-3">
+    <div class="col-md-3">
+        <div class="card text-white bg-primary shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="text-uppercase small">Total chambres</h6>
+                <h2 class="mb-0">@ViewBag.Rooms</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-success shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="text-uppercase small">Clients</h6>
+                <h2 class="mb-0">@ViewBag.Clients</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-warning shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="text-uppercase small">Réservations (total)</h6>
+                <h2 class="mb-0">@ViewBag.Reservations</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-dark shadow-sm h-100">
+            <div class="card-body">
+                <h6 class="text-uppercase small">Revenu estimé</h6>
+                <h2 class="mb-0">@(((decimal)ViewBag.EstimatedRevenue).ToString("0.00")) €</h2>
+            </div>
+        </div>
+    </div>
+</div>
 
-		<div class="col-md-4">
-			<div class="card bg-primary text-white p-3">
-				<h3>@ViewBag.Rooms</h3>
-				<p>Total Rooms</p>
-			</div>
-		</div>
+<div class="row g-3 mt-1">
+    <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5>Occupation actuelle</h5>
+                <div class="progress my-3" style="height: 22px;">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: @(ViewBag.OccupancyRate)%;">
+                        @(ViewBag.OccupancyRate) %
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between text-muted small">
+                    <span>Occupées : <strong>@ViewBag.RoomsOccupied</strong></span>
+                    <span>Libres : <strong>@ViewBag.RoomsFree</strong></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5>Réservations</h5>
+                <div class="d-flex justify-content-between py-2 border-bottom">
+                    <span>En cours aujourd'hui</span>
+                    <strong>@ViewBag.ActiveReservations</strong>
+                </div>
+                <div class="d-flex justify-content-between py-2">
+                    <span>À venir</span>
+                    <strong>@ViewBag.UpcomingReservations</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-		<div class="col-md-4">
-			<div class="card bg-success text-white p-3">
-				<h3>@ViewBag.Clients</h3>
-				<p>Total Clients</p>
-			</div>
-		</div>
-
-		<div class="col-md-4">
-			<div class="card bg-warning text-white p-3">
-				<h3>@ViewBag.Reservations</h3>
-				<p>Total Reservations</p>
-			</div>
-		</div>
-
-	</div>
+<div class="mt-4 d-flex gap-2 flex-wrap">
+    <a asp-controller="Rooms" asp-action="Index" class="btn btn-outline-primary">Gérer les chambres</a>
+    <a asp-controller="Clients" asp-action="Index" class="btn btn-outline-primary">Gérer les clients</a>
+    <a asp-controller="Reservations" asp-action="Index" class="btn btn-outline-primary">Voir les réservations</a>
+    <a asp-controller="Reservations" asp-action="Calendar" class="btn btn-outline-secondary">Calendrier</a>
 </div>

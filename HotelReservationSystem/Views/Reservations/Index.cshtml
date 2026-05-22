@@ -1,53 +1,107 @@
-﻿@model IEnumerable<HotelReservationSystem.Models.Reservation>
+@model IEnumerable<HotelReservationSystem.Models.Reservation>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Réservations";
+    var today = DateTime.Today;
+    var now = DateTime.Now;
 }
 
-<h1>Index</h1>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="mb-0">Réservations</h1>
+    <div>
+        <a asp-action="Calendar" class="btn btn-outline-secondary">Voir le calendrier</a>
+        <a asp-action="Create" class="btn btn-primary">+ Nouvelle réservation</a>
+    </div>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CheckIn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CheckOut)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Room)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Client)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CheckIn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CheckOut)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Room.RoomNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Client.FullName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+@if (!Model.Any())
+{
+    <div class="alert alert-info">Aucune réservation pour le moment.</div>
 }
-    </tbody>
-</table>
+else
+{
+    <div class="card shadow-sm">
+        <div class="table-responsive">
+            <table class="table table-striped mb-0 align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Arrivée</th>
+                        <th>Départ</th>
+                        <th>Chambre</th>
+                        <th>Client</th>
+                        <th>Statut</th>
+                        <th>Note</th>
+                        <th class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model)
+                {
+                    string statut;
+                    string statutClass;
+                    if (item.IsCancelled) { statut = "Annulée"; statutClass = "bg-danger"; }
+                    else if (item.CheckOut < today) { statut = "Terminée"; statutClass = "bg-secondary"; }
+                    else if (item.CheckIn <= today && item.CheckOut >= today) { statut = "En cours"; statutClass = "bg-success"; }
+                    else { statut = "À venir"; statutClass = "bg-primary"; }
+
+                    var cancellable = !item.IsCancelled && item.CheckIn >= now.AddHours(24);
+
+                    <tr class="@(item.IsCancelled ? "text-muted" : "")">
+                        <td>@item.CheckIn.ToString("dd/MM/yyyy")</td>
+                        <td>@item.CheckOut.ToString("dd/MM/yyyy")</td>
+                        <td>@(item.Room?.RoomNumber ?? "-")</td>
+                        <td>
+                            @if (item.Client != null)
+                            {
+                                @item.Client.FullName
+                            }
+                            else if (!string.IsNullOrEmpty(item.UserId))
+                            {
+                                <span>@(item.User?.Email ?? "Utilisateur inscrit")</span>
+                            }
+                            else
+                            {
+                                <span class="text-muted">-</span>
+                            }
+                        </td>
+                        <td><span class="badge @statutClass">@statut</span></td>
+                        <td>
+                            @if (item.Rating.HasValue)
+                            {
+                                <span class="text-warning">@(new string('★', item.Rating.Value))</span>
+                                <span class="text-muted">@(new string('☆', 5 - item.Rating.Value))</span>
+                            }
+                            else
+                            {
+                                <span class="text-muted">-</span>
+                            }
+                        </td>
+                        <td class="text-end">
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">Détails</a>
+                            @if (!item.IsCancelled)
+                            {
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Modifier</a>
+                                @if (cancellable)
+                                {
+                                    <form asp-action="Cancel" asp-route-id="@item.Id" method="post" class="d-inline"
+                                          onsubmit="return confirm('Confirmer l\'annulation de cette réservation ?');">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn btn-sm btn-outline-warning">Annuler</button>
+                                    </form>
+                                }
+                            }
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">Supprimer</a>
+                            }
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p class="text-muted small mt-2">
+        Une réservation ne peut être annulée qu'au moins 24h avant la date d'arrivée.
+    </p>
+}

@@ -1,119 +1,137 @@
-﻿@{
+@model IEnumerable<HotelReservationSystem.Models.Room>
+
+@{
     ViewData["Title"] = "Accueil";
+    var roomImages = new[]
+    {
+        "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80",
+        "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=600&q=80"
+    };
 }
 
-<div class="hero py-5 bg-light">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <h1 class="display-4">Réservez votre séjour en quelques clics</h1>
-                <p class="lead text-muted">Trouvez les meilleures chambres, comparez les prix et réservez rapidement.</p>
-
-                <div class="search-box mt-4">
-                    <div class="row g-2">
-                        <div class="col-6">
-                            <label class="form-label small">Arrivée</label>
-                            <input id="homeCheckIn" type="date" class="form-control" />
-                        </div>
-                        <div class="col-6">
-                            <label class="form-label small">Départ</label>
-                            <input id="homeCheckOut" type="date" class="form-control" />
-                        </div>
+<!-- HERO -->
+<div class="hero-banner p-4 p-md-5 mb-5">
+    <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+            <h1 class="display-4">Réservez votre séjour en quelques clics</h1>
+            <p class="lead mt-3">
+                Trouvez les meilleures chambres, comparez les prix et réservez en toute simplicité.
+            </p>
+        </div>
+        <div class="col-lg-5">
+            <form method="get" asp-controller="Rooms" asp-action="Index" class="hero-search">
+                <h5 class="mb-3">Rechercher une chambre</h5>
+                <div class="row g-2">
+                    <div class="col-6">
+                        <label class="form-label small">Arrivée</label>
+                        <input id="homeCheckIn" name="checkIn" type="date" class="form-control" required />
                     </div>
-                    <div class="row g-2 mt-2">
-                        <div class="col-8">
-                            <label class="form-label small">Chambres</label>
-                            <select id="homeRooms" class="form-select">
-                                <option value="1">1 chambre</option>
-                                <option value="2">2 chambres</option>
-                                <option value="3">3 chambres</option>
-                            </select>
-                        </div>
-                        <div class="col-4 d-flex align-items-end">
-                            <button id="searchBtn" class="btn btn-primary w-100">Rechercher</button>
-                        </div>
+                    <div class="col-6">
+                        <label class="form-label small">Départ</label>
+                        <input id="homeCheckOut" name="checkOut" type="date" class="form-control" required />
                     </div>
                 </div>
-
-                <p class="mt-3">
-                    <a class="btn btn-outline-secondary me-2" href="/Reservations/Calendar">Voir le calendrier</a>
-                    <a class="btn btn-link" href="/Rooms">Voir toutes les chambres</a>
-                </p>
-            </div>
-
-            <div class="col-lg-6 d-none d-lg-block">
-                <div class="card shadow-sm">
-                    <div class="card-body text-center py-5">
-                        <h5 class="card-title">Offre du moment</h5>
-                        <p class="card-text">-20% sur les séjours de 3 nuits ou plus.</p>
-                        <span class="price-pill">Voir l'offre</span>
-                    </div>
+                <div class="mt-2">
+                    <label class="form-label small">Type de chambre</label>
+                    <select name="type" class="form-select">
+                        <option value="">Tous les types</option>
+                        <option value="Standard">Standard</option>
+                        <option value="Deluxe">Deluxe</option>
+                        <option value="Suite">Suite</option>
+                    </select>
                 </div>
-            </div>
+                <button type="submit" class="btn btn-primary w-100 mt-3">Rechercher</button>
+            </form>
         </div>
     </div>
 </div>
 
-<div class="container my-5">
-    <h3>Chambres recommandées</h3>
-    <div class="row gy-4 mt-3">
+<!-- POINTS FORTS -->
+<div class="container mb-5">
+    <div class="row text-center g-4">
         <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Chambre Standard</h5>
-                    <p class="card-text text-muted">Confort simple pour un séjour agréable.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="text-muted">à partir de</div>
-                        <div class="price-pill">65€</div>
-                    </div>
-                </div>
-            </div>
+            <div class="feature-icon">★</div>
+            <h6 class="fw-bold">Réservation rapide</h6>
+            <p class="text-muted small mb-0">Réservez votre chambre en moins d'une minute.</p>
         </div>
         <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Chambre Deluxe</h5>
-                    <p class="card-text text-muted">Plus d'espace et vue agréable.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="text-muted">à partir de</div>
-                        <div class="price-pill">95€</div>
-                    </div>
-                </div>
-            </div>
+            <div class="feature-icon">€</div>
+            <h6 class="fw-bold">Meilleurs prix</h6>
+            <p class="text-muted small mb-0">Des tarifs clairs, sans frais cachés.</p>
         </div>
         <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Suite</h5>
-                    <p class="card-text text-muted">Prestations haut de gamme.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="text-muted">à partir de</div>
-                        <div class="price-pill">150€</div>
+            <div class="feature-icon">✓</div>
+            <h6 class="fw-bold">Disponibilité en temps réel</h6>
+            <p class="text-muted small mb-0">Voyez immédiatement les chambres libres.</p>
+        </div>
+    </div>
+</div>
+
+<!-- CHAMBRES RECOMMANDEES -->
+<div class="container mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="mb-0">Chambres recommandées</h3>
+        <a asp-controller="Rooms" asp-action="Index" class="btn btn-outline-primary btn-sm">Voir toutes les chambres</a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">Aucune chambre n'est disponible pour le moment.</div>
+    }
+    else
+    {
+        <div class="row gy-4">
+            @{ var i = 0; }
+            @foreach (var room in Model)
+            {
+                var img = roomImages[i % roomImages.Length];
+                i++;
+                <div class="col-md-4">
+                    <div class="card room-card shadow-sm h-100">
+                        <div class="room-thumb" style="background-image:url('@img')"></div>
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <h5 class="card-title mb-1">Chambre @room.RoomNumber</h5>
+                                <span class="badge bg-success">Disponible</span>
+                            </div>
+                            <p class="card-text text-muted">@room.Type</p>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="text-muted small">à partir de</span>
+                                    <div class="h5 text-primary mb-0">@room.Price.ToString("0.00") €</div>
+                                </div>
+                                <a asp-controller="Rooms" asp-action="Details" asp-route-id="@room.Id" class="btn btn-primary btn-sm">Voir</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            }
+        </div>
+    }
+</div>
+
+<!-- APPEL A L'ACTION -->
+<div class="container mb-5">
+    <div class="card border-0 shadow-sm bg-primary text-white">
+        <div class="card-body d-flex flex-column flex-md-row justify-content-between align-items-md-center p-4 gap-3">
+            <div>
+                <h4 class="mb-1">Prêt à réserver votre prochain séjour ?</h4>
+                <p class="mb-0">Créez un compte gratuit et gérez vos réservations en ligne.</p>
             </div>
+            <a asp-controller="Account" asp-action="Register" class="btn btn-light fw-bold">Créer un compte</a>
         </div>
     </div>
 </div>
 
 @section Scripts {
     <script>
-        (function(){
+        (function () {
             var today = new Date().toISOString().split('T')[0];
             var inInput = document.getElementById('homeCheckIn');
             var outInput = document.getElementById('homeCheckOut');
-            inInput.setAttribute('min', today);
-            outInput.setAttribute('min', today);
-
-            document.getElementById('searchBtn').addEventListener('click', function(){
-                var checkIn = inInput.value;
-                var checkOut = outInput.value;
-                if(!checkIn || !checkOut || checkIn >= checkOut){
-                    alert('Choisissez des dates valides.');
-                    return;
-                }
-                window.location = '/Reservations/Create?checkIn=' + checkIn + '&checkOut=' + checkOut;
-            });
+            if (inInput) inInput.setAttribute('min', today);
+            if (outInput) outInput.setAttribute('min', today);
         })();
     </script>
 }
